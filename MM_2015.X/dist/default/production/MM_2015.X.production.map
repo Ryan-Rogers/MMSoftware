@@ -1,0 +1,107 @@
+Microchip Technology Inc, vv1.22 (A)
+
+Tool Name:
+  c:\program files (x86)\microchip\xc16\v1.22\bin\bin\..\bin/elf-ld.exe
+
+Command:
+  -p33EP512MC806 \
+  -o \
+  dist/default/production/MM_2015.X.production.elf \
+  -Lc:/program files (x86)/microchip/xc16/v1.22/bin/bin/.. \
+  -Lc:/program files (x86)/microchip/xc16/v1.22/bin/bin/../../lib \
+  -Lc:/program files (x86)/microchip/xc16/v1.22/bin/bin/../../lib/PIC24E \
+  -Lc:/program files (x86)/microchip/xc16/v1.22/bin/bin/../../support/PIC24E/gld \
+  -Lc:/program files (x86)/microchip/xc16/v1.22/bin/bin/../../lib/PIC24F \
+  -Lc:/program files (x86)/microchip/xc16/v1.22/bin/bin/../../support/PIC24F/gld \
+  -Lc:/program files (x86)/microchip/xc16/v1.22/bin/bin/../../lib/PIC24H \
+  -Lc:/program files (x86)/microchip/xc16/v1.22/bin/bin/../../support/PIC24H/gld \
+  -Lc:/program files (x86)/microchip/xc16/v1.22/bin/bin/../../lib/dsPIC30F \
+  -Lc:/program files (x86)/microchip/xc16/v1.22/bin/bin/../../support/dsPIC30F/gld \
+  -Lc:/program files (x86)/microchip/xc16/v1.22/bin/bin/../../lib/dsPIC33E \
+  -Lc:/program files (x86)/microchip/xc16/v1.22/bin/bin/../../support/dsPIC33E/gld \
+  -Lc:/program files (x86)/microchip/xc16/v1.22/bin/bin/../../lib/dsPIC33F \
+  -Lc:/program files (x86)/microchip/xc16/v1.22/bin/bin/../../support/dsPIC33F/gld \
+  build/default/production/MicroMouseMAIN.o \
+  build/default/production/SetupUART.o \
+  build/default/production/motorFunctions.o \
+  build/default/production/indicatorFunctions.o \
+  build/default/production/errorFunctions.o \
+  build/default/production/buttonFunctions.o \
+  build/default/production/navigationFunctions.o \
+  build/default/production/encoderFunctions.o \
+  build/default/production/testFunctions.o \
+  build/default/production/irFunctions.o \
+  build/default/production/batteryFunctions.o \
+  build/default/production/configFunctions.o \
+  build/default/production/menuFunctions.o \
+  --local-stack \
+  --defsym=__MPLAB_BUILD=1 \
+  -Tp33EP512MC806.gld.00 \
+  --stack=16 \
+  --check-sections \
+  --data-init \
+  --pack-data \
+  --handles \
+  --isr \
+  --no-gc-sections \
+  --fill-upper=0 \
+  --stackguard=16 \
+  --no-force-link \
+  --smart-io \
+  -Map=dist/default/production/MM_2015.X.production.map \
+  --report-mem \
+  -start-group \
+  --library=fx-elf \
+  --library=pic30-elf \
+  --library=m-elf \
+  --library=c-elf \
+  -end-group \
+
+Archive member included because of file (symbol)
+
+c:/program files (x86)/microchip/xc16/v1.22/bin/bin/../../lib/dsPIC33E\libp33EP512MC806-elf.a(ConfigIntUART1.o)
+                              build/default/production/SetupUART.o (_ConfigIntUART1)
+c:/program files (x86)/microchip/xc16/v1.22/bin/bin/../../lib/dsPIC33E\libp33EP512MC806-elf.a(OpenUART1.o)
+                              build/default/production/SetupUART.o (_OpenUART1)
+c:/program files (x86)/microchip/xc16/v1.22/bin/bin/../../lib\libpic30-elf.a(crt0_extendedep.o)
+                              (__resetPRI)
+c:/program files (x86)/microchip/xc16/v1.22/bin/bin/../../lib\libpic30-elf.a(data_init_extendedep.o)
+                              c:/program files (x86)/microchip/xc16/v1.22/bin/bin/../../lib\libpic30-elf.a(crt0_extendedep.o) (__data_init_extended)
+c:/program files (x86)/microchip/xc16/v1.22/bin/bin/../../lib\libpic30-elf.a(delay32ep.eo)
+                              build/default/production/indicatorFunctions.o (___delay32)
+c:/program files (x86)/microchip/xc16/v1.22/bin/bin/../../lib\libm-elf.a(addsf3.epeo)
+                              build/default/production/motorFunctions.o (___subsf3)
+c:/program files (x86)/microchip/xc16/v1.22/bin/bin/../../lib\libm-elf.a(divsi3.epeo)
+                              build/default/production/configFunctions.o (___divsi3)
+c:/program files (x86)/microchip/xc16/v1.22/bin/bin/../../lib\libm-elf.a(fixunssfsi.epeo)
+                              build/default/production/motorFunctions.o (___fixunssfsi)
+c:/program files (x86)/microchip/xc16/v1.22/bin/bin/../../lib\libm-elf.a(floatsisf.epeo)
+                              build/default/production/motorFunctions.o (___floatsisf)
+c:/program files (x86)/microchip/xc16/v1.22/bin/bin/../../lib\libm-elf.a(fpack.epeo)
+                              c:/program files (x86)/microchip/xc16/v1.22/bin/bin/../../lib\libm-elf.a(addsf3.epeo) (__fpack)
+c:/program files (x86)/microchip/xc16/v1.22/bin/bin/../../lib\libm-elf.a(funpack.epeo)
+                              c:/program files (x86)/microchip/xc16/v1.22/bin/bin/../../lib\libm-elf.a(fixunssfsi.epeo) (__funpack)
+c:/program files (x86)/microchip/xc16/v1.22/bin/bin/../../lib\libm-elf.a(funpack2.epeo)
+                              c:/program files (x86)/microchip/xc16/v1.22/bin/bin/../../lib\libm-elf.a(addsf3.epeo) (__funpack2)
+c:/program files (x86)/microchip/xc16/v1.22/bin/bin/../../lib\libm-elf.a(futil.epeo)
+                              c:/program files (x86)/microchip/xc16/v1.22/bin/bin/../../lib\libm-elf.a(addsf3.epeo) (__fPropagateNaN)
+c:/program files (x86)/microchip/xc16/v1.22/bin/bin/../../lib\libm-elf.a(mulsf3.epeo)
+                              build/default/production/motorFunctions.o (___mulsf3)
+c:/program files (x86)/microchip/xc16/v1.22/bin/bin/../../lib\libm-elf.a(udivsi3.epeo)
+                              c:/program files (x86)/microchip/xc16/v1.22/bin/bin/../../lib\libm-elf.a(divsi3.epeo) (___udivsi3)
+c:/program files (x86)/microchip/xc16/v1.22/bin/bin/../../lib\libm-elf.a(floatdisf.epeo)
+                              c:/program files (x86)/microchip/xc16/v1.22/bin/bin/../../lib\libm-elf.a(floatsisf.epeo) (___floatdisf)
+c:/program files (x86)/microchip/xc16/v1.22/bin/bin/../../lib\libm-elf.a(floatundisf.epeo)
+                              c:/program files (x86)/microchip/xc16/v1.22/bin/bin/../../lib\libm-elf.a(floatdisf.epeo) (___floatundisf)
+c:/program files (x86)/microchip/xc16/v1.22/bin/bin/../../lib\libc-elf.a(puts.epeo)
+                              build/default/production/MicroMouseMAIN.o (_puts)
+c:/program files (x86)/microchip/xc16/v1.22/bin/bin/../../lib\libc-elf.a(_iob.epeo)
+                              c:/program files (x86)/microchip/xc16/v1.22/bin/bin/../../lib\libc-elf.a(puts.epeo) (__iob)
+c:/program files (x86)/microchip/xc16/v1.22/bin/bin/../../lib\libc-elf.a(fputc.epeo)
+                              c:/program files (x86)/microchip/xc16/v1.22/bin/bin/../../lib\libc-elf.a(puts.epeo) (_fputc)
+c:/program files (x86)/microchip/xc16/v1.22/bin/bin/../../lib\libc-elf.a(flsbuf.epeo)
+                              c:/program files (x86)/microchip/xc16/v1.22/bin/bin/../../lib\libc-elf.a(fputc.epeo) (__flsbuf)
+c:/program files (x86)/microchip/xc16/v1.22/bin/bin/../../lib\libpic30-elf.a(writeep.eo)
+                              c:/program files (x86)/microchip/xc16/v1.22/bin/bin/../../lib\libc-elf.a(fputc.epeo) (_write)
+c:/program files (x86)/microchip/xc16/v1.22/bin/bin/../../lib\libpic30-elf.a(c30_uartep.eo)
+                              c:/program files (x86)/microchip/xc16/v1.22/bin/bin/../../lib\libpic30-elf.a(writeep.eo) (___C30_UART)
