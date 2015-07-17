@@ -361,15 +361,16 @@
         int MOTORturn (int direction);
     // Navigation Functions
     // Test Functions
+        int[][][] newMap(void);
 
 // </editor-fold>
 // <editor-fold defaultstate="collapsed" desc="Main">
+
 //=================================================================
 //*********************** MAIN SUBROUTINE *************************
 //=================================================================
-int main(void){
+int main(void) {
     RCONbits.SWDTEN = 0;    // Turn Off Software Watch Dog Timer
-
     CONFIG_IO();            // Configure Pins as Input or Output & Analog or Digital
     CONFIG_PWM();           // Configure Pulse Width Modulation
     CONFIG_QEI();           // Configure Quadrature Encoder Interface
@@ -378,18 +379,37 @@ int main(void){
     CONFIG_UART();          // Configure UART
     //CONFIG_TIMERS();      // Configure timers and ISRs for IR ADC and battery monitoring
     CONFIG_CLOCKLOW();      // Slow Clock
-    if (DEBUG) printf ("Setup Complete - Beginning Main Program\n");
+    
+    // DEBUG Mode
+    if(DEBUG) {
+        printf ("Setup Complete - Beginning Main Program\n");
+    }
+    
     BLED6 = 1;
     GLED5 = 0;
-    while(1){               // Main Program Loop
-
+    
+    _Bool mazeSolved;
+    newMap();
+    
+    // Main Mode Loop
+    while(1) {
+        
+        // DEBUG
         __delay32(DELAYslowLONG);
         GLED5 = !GLED5;
         BLED6 = !BLED6;
-        printf("Battery Level = :%d\n", BATTlevel);
-
-            }
-    return(0);}
+        printf("Battery Level = :%d\n", BATTlevel); // Printing battery level
+        
+        // Solving the maze
+        mazeSolved = 0;
+        while(!mazeSolved) {
+            
+        }
+    }
+    
+    // End of Main Program
+    return(0);
+}
 // </editor-fold>
 int BATTdisplay (void){
     BATTlevel = ADCget(0);

@@ -1,26 +1,26 @@
-Microchip Technology Inc, vv1.22 (A)
+Microchip Technology Inc, vv1.24 (0)
 
 Tool Name:
-  c:\program files (x86)\microchip\xc16\v1.22\bin\bin\..\bin/elf-ld.exe
+  c:\program files\microchip\xc16\v1.24\bin\bin\..\bin/elf-ld.exe
 
 Command:
   -p33EP512MC806 \
   -o \
   dist/default/production/MM_2015.X.production.elf \
-  -Lc:/program files (x86)/microchip/xc16/v1.22/bin/bin/.. \
-  -Lc:/program files (x86)/microchip/xc16/v1.22/bin/bin/../../lib \
-  -Lc:/program files (x86)/microchip/xc16/v1.22/bin/bin/../../lib/PIC24E \
-  -Lc:/program files (x86)/microchip/xc16/v1.22/bin/bin/../../support/PIC24E/gld \
-  -Lc:/program files (x86)/microchip/xc16/v1.22/bin/bin/../../lib/PIC24F \
-  -Lc:/program files (x86)/microchip/xc16/v1.22/bin/bin/../../support/PIC24F/gld \
-  -Lc:/program files (x86)/microchip/xc16/v1.22/bin/bin/../../lib/PIC24H \
-  -Lc:/program files (x86)/microchip/xc16/v1.22/bin/bin/../../support/PIC24H/gld \
-  -Lc:/program files (x86)/microchip/xc16/v1.22/bin/bin/../../lib/dsPIC30F \
-  -Lc:/program files (x86)/microchip/xc16/v1.22/bin/bin/../../support/dsPIC30F/gld \
-  -Lc:/program files (x86)/microchip/xc16/v1.22/bin/bin/../../lib/dsPIC33E \
-  -Lc:/program files (x86)/microchip/xc16/v1.22/bin/bin/../../support/dsPIC33E/gld \
-  -Lc:/program files (x86)/microchip/xc16/v1.22/bin/bin/../../lib/dsPIC33F \
-  -Lc:/program files (x86)/microchip/xc16/v1.22/bin/bin/../../support/dsPIC33F/gld \
+  -Lc:/program files/microchip/xc16/v1.24/bin/bin/.. \
+  -Lc:/program files/microchip/xc16/v1.24/bin/bin/../../lib \
+  -Lc:/program files/microchip/xc16/v1.24/bin/bin/../../lib/PIC24E \
+  -Lc:/program files/microchip/xc16/v1.24/bin/bin/../../support/PIC24E/gld \
+  -Lc:/program files/microchip/xc16/v1.24/bin/bin/../../lib/PIC24F \
+  -Lc:/program files/microchip/xc16/v1.24/bin/bin/../../support/PIC24F/gld \
+  -Lc:/program files/microchip/xc16/v1.24/bin/bin/../../lib/PIC24H \
+  -Lc:/program files/microchip/xc16/v1.24/bin/bin/../../support/PIC24H/gld \
+  -Lc:/program files/microchip/xc16/v1.24/bin/bin/../../lib/dsPIC30F \
+  -Lc:/program files/microchip/xc16/v1.24/bin/bin/../../support/dsPIC30F/gld \
+  -Lc:/program files/microchip/xc16/v1.24/bin/bin/../../lib/dsPIC33E \
+  -Lc:/program files/microchip/xc16/v1.24/bin/bin/../../support/dsPIC33E/gld \
+  -Lc:/program files/microchip/xc16/v1.24/bin/bin/../../lib/dsPIC33F \
+  -Lc:/program files/microchip/xc16/v1.24/bin/bin/../../support/dsPIC33F/gld \
   build/default/production/MicroMouseMAIN.o \
   build/default/production/SetupUART.o \
   --local-stack \
@@ -40,7 +40,6 @@ Command:
   -Map=dist/default/production/MM_2015.X.production.map \
   --report-mem \
   -start-group \
-  --library=fx-elf \
   --library=pic30-elf \
   --library=m-elf \
   --library=c-elf \
@@ -48,57 +47,57 @@ Command:
 
 Archive member included because of file (symbol)
 
-c:/program files (x86)/microchip/xc16/v1.22/bin/bin/../../lib/dsPIC33E\libp33EP512MC806-elf.a(ConfigIntUART1.o)
+c:/program files/microchip/xc16/v1.24/bin/bin/../../lib/dsPIC33E\libp33EP512MC806-elf.a(ConfigIntUART1.o)
                               build/default/production/SetupUART.o (_ConfigIntUART1)
-c:/program files (x86)/microchip/xc16/v1.22/bin/bin/../../lib/dsPIC33E\libp33EP512MC806-elf.a(OpenUART1.o)
+c:/program files/microchip/xc16/v1.24/bin/bin/../../lib/dsPIC33E\libp33EP512MC806-elf.a(OpenUART1.o)
                               build/default/production/SetupUART.o (_OpenUART1)
-c:/program files (x86)/microchip/xc16/v1.22/bin/bin/../../lib\libpic30-elf.a(crt0_extendedep.o)
+c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libpic30-elf.a(crt0_extendedep.o)
                               (__resetPRI)
-c:/program files (x86)/microchip/xc16/v1.22/bin/bin/../../lib\libpic30-elf.a(data_init_extendedep.o)
-                              c:/program files (x86)/microchip/xc16/v1.22/bin/bin/../../lib\libpic30-elf.a(crt0_extendedep.o) (__data_init_extended)
-c:/program files (x86)/microchip/xc16/v1.22/bin/bin/../../lib\libpic30-elf.a(delay32ep.eo)
+c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libpic30-elf.a(data_init_extendedep.o)
+                              c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libpic30-elf.a(crt0_extendedep.o) (__data_init_extended)
+c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libpic30-elf.a(delay32ep.eo)
                               build/default/production/MicroMouseMAIN.o (___delay32)
-c:/program files (x86)/microchip/xc16/v1.22/bin/bin/../../lib\libm-elf.a(divsi3.epeo)
+c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libm-elf.a(divsi3.epeo)
                               build/default/production/MicroMouseMAIN.o (___divsi3)
-c:/program files (x86)/microchip/xc16/v1.22/bin/bin/../../lib\libm-elf.a(udivsi3.epeo)
-                              c:/program files (x86)/microchip/xc16/v1.22/bin/bin/../../lib\libm-elf.a(divsi3.epeo) (___udivsi3)
-c:/program files (x86)/microchip/xc16/v1.22/bin/bin/../../lib\libc-elf.a(puts.epeo)
+c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libm-elf.a(udivsi3.epeo)
+                              c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libm-elf.a(divsi3.epeo) (___udivsi3)
+c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libc-elf.a(puts.epeo)
                               build/default/production/MicroMouseMAIN.o (_puts)
-c:/program files (x86)/microchip/xc16/v1.22/bin/bin/../../lib\libc-elf.a(_iob.epeo)
-                              c:/program files (x86)/microchip/xc16/v1.22/bin/bin/../../lib\libc-elf.a(puts.epeo) (__iob)
-c:/program files (x86)/microchip/xc16/v1.22/bin/bin/../../lib\libc-elf.a(printf_cdnopuxX.EPeo)
+c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libc-elf.a(_iob.epeo)
+                              c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libc-elf.a(puts.epeo) (__iob)
+c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libc-elf.a(printf_cdnopuxX.EPeo)
                               build/default/production/MicroMouseMAIN.o (__printf_cdnopuxX)
-c:/program files (x86)/microchip/xc16/v1.22/bin/bin/../../lib\libc-elf.a(fputc.epeo)
-                              c:/program files (x86)/microchip/xc16/v1.22/bin/bin/../../lib\libc-elf.a(puts.epeo) (_fputc)
-c:/program files (x86)/microchip/xc16/v1.22/bin/bin/../../lib\libc-elf.a(doprnt_cdnopuxX.EPeo)
-                              c:/program files (x86)/microchip/xc16/v1.22/bin/bin/../../lib\libc-elf.a(printf_cdnopuxX.EPeo) (__vfprintf_cdnopuxX)
-c:/program files (x86)/microchip/xc16/v1.22/bin/bin/../../lib\libc-elf.a(flsbuf.epeo)
-                              c:/program files (x86)/microchip/xc16/v1.22/bin/bin/../../lib\libc-elf.a(fputc.epeo) (__flsbuf)
-c:/program files (x86)/microchip/xc16/v1.22/bin/bin/../../lib\libpic30-elf.a(writeep.eo)
-                              c:/program files (x86)/microchip/xc16/v1.22/bin/bin/../../lib\libc-elf.a(fputc.epeo) (_write)
-c:/program files (x86)/microchip/xc16/v1.22/bin/bin/../../lib\libpic30-elf.a(c30_uartep.eo)
-                              c:/program files (x86)/microchip/xc16/v1.22/bin/bin/../../lib\libpic30-elf.a(writeep.eo) (___C30_UART)
-c:/program files (x86)/microchip/xc16/v1.22/bin/bin/../../lib\libm-elf.a(mulsi3.epeo)
-                              c:/program files (x86)/microchip/xc16/v1.22/bin/bin/../../lib\libc-elf.a(doprnt_cdnopuxX.EPeo) (___mulsi3)
-c:/program files (x86)/microchip/xc16/v1.22/bin/bin/../../lib\libm-elf.a(divmoddi3.epeo)
-                              c:/program files (x86)/microchip/xc16/v1.22/bin/bin/../../lib\libc-elf.a(doprnt_cdnopuxX.EPeo) (___udivdi3)
-c:/program files (x86)/microchip/xc16/v1.22/bin/bin/../../lib\libm-elf.a(muldi3.epeo)
-                              c:/program files (x86)/microchip/xc16/v1.22/bin/bin/../../lib\libc-elf.a(doprnt_cdnopuxX.EPeo) (___muldi3)
-c:/program files (x86)/microchip/xc16/v1.22/bin/bin/../../lib\libm-elf.a(umuldi3.epeo)
-                              c:/program files (x86)/microchip/xc16/v1.22/bin/bin/../../lib\libm-elf.a(muldi3.epeo) (___umuldi3)
+c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libc-elf.a(fputc.epeo)
+                              c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libc-elf.a(puts.epeo) (_fputc)
+c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libc-elf.a(doprnt_cdnopuxX.EPeo)
+                              c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libc-elf.a(printf_cdnopuxX.EPeo) (__vfprintf_cdnopuxX)
+c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libc-elf.a(flsbuf.epeo)
+                              c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libc-elf.a(fputc.epeo) (__flsbuf)
+c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libpic30-elf.a(writeep.eo)
+                              c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libc-elf.a(fputc.epeo) (_write)
+c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libpic30-elf.a(c30_uartep.eo)
+                              c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libpic30-elf.a(writeep.eo) (___C30_UART)
+c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libm-elf.a(mulsi3.epeo)
+                              c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libc-elf.a(doprnt_cdnopuxX.EPeo) (___mulsi3)
+c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libm-elf.a(divmoddi3.epeo)
+                              c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libc-elf.a(doprnt_cdnopuxX.EPeo) (___udivdi3)
+c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libm-elf.a(muldi3.epeo)
+                              c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libc-elf.a(doprnt_cdnopuxX.EPeo) (___muldi3)
+c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libm-elf.a(umuldi3.epeo)
+                              c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libm-elf.a(muldi3.epeo) (___umuldi3)
 
 
 Program Memory  [Origin = 0x200, Length = 0x55600]
 
 section                    address   length (PC units)   length (bytes) (dec)
 -------                    -------   -----------------   --------------------
-.text                        0x200               0xcf8          0x1374  (4980)
-.text                        0xef8               0x5a6           0x879  (2169)
-.dinit                      0x149e               0x15e           0x20d  (525)
-.text                       0x15fc                0x22            0x33  (51)
-.init.delay32               0x161e                0x1c            0x2a  (42)
+.text                        0x200               0xcfc          0x137a  (4986)
+.text                        0xefc               0x5b6           0x891  (2193)
+.dinit                      0x14b2               0x176           0x231  (561)
+.text                       0x1628                0x22            0x33  (51)
+.init.delay32               0x164a                0x1c            0x2a  (42)
 
-                     Total program memory used (bytes):         0x1e57  (7767) 1%
+                     Total program memory used (bytes):         0x1e99  (7833) 1%
 
 
 Auxflash Memory  [Origin = 0x7fc000, Length = 0x3ffa]
@@ -116,9 +115,15 @@ section                    address      alignment gaps    total length  (dec)
 .nbss                       0x1000                   0            0x5c  (92)
 .ndata                      0x105c                   0            0x10  (16)
 .bss                        0x106c                   0          0x50a0  (20640)
-.data                       0x610c                   0           0x1a8  (424)
-.bss                        0x62b4                   0             0x6  (6)
-.data                       0x62ba                   0             0x2  (2)
+.data                       0x610c                   0            0xb8  (184)
+.data.dpowers               0x61c4                   0            0xa0  (160)
+.data                       0x6264                   0            0x2a  (42)
+.data._iob                  0x628e                   0            0x24  (36)
+.data._Files                0x62b2                   0             0x2  (2)
+.bss._outdone               0x62b4                   0             0x2  (2)
+.bss._sibuf                 0x62b6                   0             0x2  (2)
+.bss._sobuf                 0x62b8                   0             0x2  (2)
+.data.__C30_UART            0x62ba                   0             0x2  (2)
 
                         Total data memory used (bytes):         0x52bc  (21180) 39%
 
@@ -185,8 +190,8 @@ External Symbols in Data Memory (by address):
                     0x628e                  __iob
                     0x62b2                  __Files
                     0x62b4                  __outdone
-                    0x62b5                  __sibuf
-                    0x62b7                  __sobuf
+                    0x62b6                  __sibuf
+                    0x62b8                  __sobuf
                     0x62ba                  ___C30_UART
 
 External Symbols in Data Memory (by name):
@@ -226,8 +231,8 @@ External Symbols in Data Memory (by name):
                     0x62ba                  ___C30_UART
                     0x628e                  __iob
                     0x62b4                  __outdone
-                    0x62b5                  __sibuf
-                    0x62b7                  __sobuf
+                    0x62b6                  __sibuf
+                    0x62b8                  __sobuf
                     0x102e                  _adc1
                     0x1030                  _adc2
                     0x1032                  _adc3
@@ -260,57 +265,57 @@ External Symbols in Program Memory (by address):
                   0x0003ec                  _puts
                   0x000404                  __printf_cdnopuxX
                   0x00049e                  __vfprintf_cdnopuxX
-                  0x000c32                  ___mulp32eds3
-                  0x000c32                  ___mulp32peds3
-                  0x000c32                  ___mulsi3
-                  0x000cac                  ___udivmoddi3
-                  0x000d7c                  ___udivdi3
-                  0x000d8e                  ___umoddi3
-                  0x000d9a                  ___divdi3
-                  0x000dfe                  ___moddi3
-                  0x000e5e                  ___muldi3
-                  0x000eb4                  ___umuldi3
-                  0x000ef8                  _main
-                  0x000f6a                  _BATTdisplay
-                  0x000ff4                  _CONFIG_CLOCKHIGH
-                  0x001082                  _CONFIG_CLOCKLOW
-                  0x001110                  _CONFIG_IO
-                  0x0011b6                  _CONFIG_QEI
-                  0x001244                  _CONFIG_PWM
-                  0x0012a6                  _CONFIG_ADC
-                  0x00131a                  _ADCget
-                  0x00142c                  _CONFIG_UART
-                  0x0015fc                  _SetupUART
-                  0x00161e                  ___delay32
+                  0x000c36                  ___mulp32eds3
+                  0x000c36                  ___mulp32peds3
+                  0x000c36                  ___mulsi3
+                  0x000cb0                  ___udivmoddi3
+                  0x000d80                  ___udivdi3
+                  0x000d92                  ___umoddi3
+                  0x000d9e                  ___divdi3
+                  0x000e02                  ___moddi3
+                  0x000e62                  ___muldi3
+                  0x000eb8                  ___umuldi3
+                  0x000efc                  _main
+                  0x000f7c                  _BATTdisplay
+                  0x001006                  _CONFIG_CLOCKHIGH
+                  0x001094                  _CONFIG_CLOCKLOW
+                  0x001122                  _CONFIG_IO
+                  0x0011c8                  _CONFIG_QEI
+                  0x001256                  _CONFIG_PWM
+                  0x0012b8                  _CONFIG_ADC
+                  0x00132e                  _ADCget
+                  0x001440                  _CONFIG_UART
+                  0x001628                  _SetupUART
+                  0x00164a                  ___delay32
 
 External Symbols in Program Memory (by name):
 
-                  0x00131a                  _ADCget
-                  0x000f6a                  _BATTdisplay
-                  0x0012a6                  _CONFIG_ADC
-                  0x000ff4                  _CONFIG_CLOCKHIGH
-                  0x001082                  _CONFIG_CLOCKLOW
-                  0x001110                  _CONFIG_IO
-                  0x001244                  _CONFIG_PWM
-                  0x0011b6                  _CONFIG_QEI
-                  0x00142c                  _CONFIG_UART
+                  0x00132e                  _ADCget
+                  0x000f7c                  _BATTdisplay
+                  0x0012b8                  _CONFIG_ADC
+                  0x001006                  _CONFIG_CLOCKHIGH
+                  0x001094                  _CONFIG_CLOCKLOW
+                  0x001122                  _CONFIG_IO
+                  0x001256                  _CONFIG_PWM
+                  0x0011c8                  _CONFIG_QEI
+                  0x001440                  _CONFIG_UART
                   0x000336                  _ConfigIntUART1
                   0x000382                  _OpenUART1
-                  0x0015fc                  _SetupUART
+                  0x001628                  _SetupUART
                   0x0002d2                  __DefaultInterrupt
-                  0x00161e                  ___delay32
-                  0x000d9a                  ___divdi3
+                  0x00164a                  ___delay32
+                  0x000d9e                  ___divdi3
                   0x00038e                  ___divsi3
-                  0x000dfe                  ___moddi3
-                  0x000e5e                  ___muldi3
-                  0x000c32                  ___mulp32eds3
-                  0x000c32                  ___mulp32peds3
-                  0x000c32                  ___mulsi3
-                  0x000d7c                  ___udivdi3
-                  0x000cac                  ___udivmoddi3
+                  0x000e02                  ___moddi3
+                  0x000e62                  ___muldi3
+                  0x000c36                  ___mulp32eds3
+                  0x000c36                  ___mulp32peds3
+                  0x000c36                  ___mulsi3
+                  0x000d80                  ___udivdi3
+                  0x000cb0                  ___udivmoddi3
                   0x0003ac                  ___udivsi3
-                  0x000d8e                  ___umoddi3
-                  0x000eb4                  ___umuldi3
+                  0x000d92                  ___umoddi3
+                  0x000eb8                  ___umuldi3
                   0x000238                  __data_init
                   0x000238                  __data_init_extended
                   0x000404                  __printf_cdnopuxX
@@ -318,7 +323,7 @@ External Symbols in Program Memory (by name):
                   0x000200                  __resetPRI
                   0x00049e                  __vfprintf_cdnopuxX
                   0x0003cc                  _fputs
-                  0x000ef8                  _main
+                  0x000efc                  _main
                   0x0003ec                  _puts
 
 Memory Configuration
@@ -344,7 +349,8 @@ Linker script and memory map
 LOAD build/default/production/MicroMouseMAIN.o
 LOAD build/default/production/SetupUART.o
                     0x0001                  __MPLAB_BUILD = 0x1
-LOAD c:/program files (x86)/microchip/xc16/v1.22/bin/bin/../../lib/dsPIC33E\libp33EP512MC806-elf.a
+LOAD c:/program files/microchip/xc16/v1.24/bin/bin/../../lib/dsPIC33E\libp33EP512MC806-elf.a
+LOAD c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libfx-elf.a
                     0xf80004                  __FGS = 0xf80004
                     0xf80006                  __FOSCSEL = 0xf80006
                     0xf80008                  __FOSC = 0xf80008
@@ -368,13 +374,13 @@ LOAD c:/program files (x86)/microchip/xc16/v1.22/bin/bin/../../lib/dsPIC33E\libp
                   0x000002          0x2 SHORT 0x0 ((ABSOLUTE (__reset) >> 0x10) & 0x7f)
                   0x000003          0x2 SHORT 0x0
 
-.text             0x000200        0xcf8
+.text             0x000200        0xcfc
  *(.init)
- .init            0x000200         0x38 c:/program files (x86)/microchip/xc16/v1.22/bin/bin/../../lib\libpic30-elf.a(crt0_extendedep.o)
+ .init            0x000200         0x38 c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libpic30-elf.a(crt0_extendedep.o)
                   0x000200                  __resetPRI
                   0x000200                  __reset
                   0x00022c                  __psv_init
- .init            0x000238         0x9a c:/program files (x86)/microchip/xc16/v1.22/bin/bin/../../lib\libpic30-elf.a(data_init_extendedep.o)
+ .init            0x000238         0x9a c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libpic30-elf.a(data_init_extendedep.o)
                   0x000238                  __data_init
                   0x000238                  __data_init_extended
  *(.user_init)
@@ -383,62 +389,62 @@ LOAD c:/program files (x86)/microchip/xc16/v1.22/bin/bin/../../lib/dsPIC33E\libp
  .isr             0x0002d2          0x4 default_isr
                   0x0002d2                  __DefaultInterrupt
  *(.libc)
- .libc            0x0002d6         0x60 c:/program files (x86)/microchip/xc16/v1.22/bin/bin/../../lib\libpic30-elf.a(writeep.eo)
+ .libc            0x0002d6         0x60 c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libpic30-elf.a(writeep.eo)
                   0x0002d6                  _write
  *(.libm)
  *(.libdsp)
  *(.lib*)
- .libperi         0x000336         0x4c c:/program files (x86)/microchip/xc16/v1.22/bin/bin/../../lib/dsPIC33E\libp33EP512MC806-elf.a(ConfigIntUART1.o)
+ .libperi         0x000336         0x4c c:/program files/microchip/xc16/v1.24/bin/bin/../../lib/dsPIC33E\libp33EP512MC806-elf.a(ConfigIntUART1.o)
                   0x000336                  _ConfigIntUART1
- .libperi         0x000382          0xc c:/program files (x86)/microchip/xc16/v1.22/bin/bin/../../lib/dsPIC33E\libp33EP512MC806-elf.a(OpenUART1.o)
+ .libperi         0x000382          0xc c:/program files/microchip/xc16/v1.24/bin/bin/../../lib/dsPIC33E\libp33EP512MC806-elf.a(OpenUART1.o)
                   0x000382                  _OpenUART1
- .libm.divsi3     0x00038e         0x1e c:/program files (x86)/microchip/xc16/v1.22/bin/bin/../../lib\libm-elf.a(divsi3.epeo)
+ .libm.divsi3     0x00038e         0x1e c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libm-elf.a(divsi3.epeo)
                   0x00038e                  ___divsi3
- .libm.udivsi3    0x0003ac         0x20 c:/program files (x86)/microchip/xc16/v1.22/bin/bin/../../lib\libm-elf.a(udivsi3.epeo)
+ .libm.udivsi3    0x0003ac         0x20 c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libm-elf.a(udivsi3.epeo)
                   0x0003ac                  ___udivsi3
- .libc.fputs      0x0003cc         0x20 c:/program files (x86)/microchip/xc16/v1.22/bin/bin/../../lib\libc-elf.a(puts.epeo)
+ .libc.fputs      0x0003cc         0x20 c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libc-elf.a(puts.epeo)
                   0x0003cc                  _fputs
- .libc.puts       0x0003ec         0x18 c:/program files (x86)/microchip/xc16/v1.22/bin/bin/../../lib\libc-elf.a(puts.epeo)
+ .libc.puts       0x0003ec         0x18 c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libc-elf.a(puts.epeo)
                   0x0003ec                  _puts
  .libc._printf_cdnopuxX
-                  0x000404          0xe c:/program files (x86)/microchip/xc16/v1.22/bin/bin/../../lib\libc-elf.a(printf_cdnopuxX.EPeo)
+                  0x000404          0xe c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libc-elf.a(printf_cdnopuxX.EPeo)
                   0x000404                  __printf_cdnopuxX
- .libc.fputc      0x000412         0x8c c:/program files (x86)/microchip/xc16/v1.22/bin/bin/../../lib\libc-elf.a(fputc.epeo)
+ .libc.fputc      0x000412         0x8c c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libc-elf.a(fputc.epeo)
                   0x000412                  _fputc
  .libc._vfprintf_cdnopuxX
-                  0x00049e        0x70c c:/program files (x86)/microchip/xc16/v1.22/bin/bin/../../lib\libc-elf.a(doprnt_cdnopuxX.EPeo)
+                  0x00049e        0x710 c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libc-elf.a(doprnt_cdnopuxX.EPeo)
                   0x00049e                  __vfprintf_cdnopuxX
- .libc._flsbuf    0x000baa         0x80 c:/program files (x86)/microchip/xc16/v1.22/bin/bin/../../lib\libc-elf.a(flsbuf.epeo)
-                  0x000baa                  __flsbuf
- .libc.dowrite    0x000c2a          0x8 c:/program files (x86)/microchip/xc16/v1.22/bin/bin/../../lib\libpic30-elf.a(writeep.eo)
- .libm.mulsi3     0x000c32          0xc c:/program files (x86)/microchip/xc16/v1.22/bin/bin/../../lib\libm-elf.a(mulsi3.epeo)
-                  0x000c32                  ___mulp32peds3
-                  0x000c32                  ___mulsi3
-                  0x000c32                  ___mulp32eds3
+ .libc._flsbuf    0x000bae         0x80 c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libc-elf.a(flsbuf.epeo)
+                  0x000bae                  __flsbuf
+ .libc.dowrite    0x000c2e          0x8 c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libpic30-elf.a(writeep.eo)
+ .libm.mulsi3     0x000c36          0xc c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libm-elf.a(mulsi3.epeo)
+                  0x000c36                  ___mulp32peds3
+                  0x000c36                  ___mulsi3
+                  0x000c36                  ___mulp32eds3
  .libm.__PplusBdi
-                  0x000c3e         0x2c c:/program files (x86)/microchip/xc16/v1.22/bin/bin/../../lib\libm-elf.a(divmoddi3.epeo)
+                  0x000c42         0x2c c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libm-elf.a(divmoddi3.epeo)
  .libm.__PminusBdi
-                  0x000c6a         0x42 c:/program files (x86)/microchip/xc16/v1.22/bin/bin/../../lib\libm-elf.a(divmoddi3.epeo)
+                  0x000c6e         0x42 c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libm-elf.a(divmoddi3.epeo)
  .libm.__udivmoddi3
-                  0x000cac         0xd0 c:/program files (x86)/microchip/xc16/v1.22/bin/bin/../../lib\libm-elf.a(divmoddi3.epeo)
-                  0x000cac                  ___udivmoddi3
+                  0x000cb0         0xd0 c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libm-elf.a(divmoddi3.epeo)
+                  0x000cb0                  ___udivmoddi3
  .libm.__udivdi3
-                  0x000d7c         0x12 c:/program files (x86)/microchip/xc16/v1.22/bin/bin/../../lib\libm-elf.a(divmoddi3.epeo)
-                  0x000d7c                  ___udivdi3
+                  0x000d80         0x12 c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libm-elf.a(divmoddi3.epeo)
+                  0x000d80                  ___udivdi3
  .libm.__umoddi3
-                  0x000d8e          0xc c:/program files (x86)/microchip/xc16/v1.22/bin/bin/../../lib\libm-elf.a(divmoddi3.epeo)
-                  0x000d8e                  ___umoddi3
+                  0x000d92          0xc c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libm-elf.a(divmoddi3.epeo)
+                  0x000d92                  ___umoddi3
  .libm.__divdi3
-                  0x000d9a         0x64 c:/program files (x86)/microchip/xc16/v1.22/bin/bin/../../lib\libm-elf.a(divmoddi3.epeo)
-                  0x000d9a                  ___divdi3
+                  0x000d9e         0x64 c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libm-elf.a(divmoddi3.epeo)
+                  0x000d9e                  ___divdi3
  .libm.__moddi3
-                  0x000dfe         0x60 c:/program files (x86)/microchip/xc16/v1.22/bin/bin/../../lib\libm-elf.a(divmoddi3.epeo)
-                  0x000dfe                  ___moddi3
+                  0x000e02         0x60 c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libm-elf.a(divmoddi3.epeo)
+                  0x000e02                  ___moddi3
  .libm.__muldi3
-                  0x000e5e         0x56 c:/program files (x86)/microchip/xc16/v1.22/bin/bin/../../lib\libm-elf.a(muldi3.epeo)
-                  0x000e5e                  ___muldi3
- .libm.umuldi3    0x000eb4         0x44 c:/program files (x86)/microchip/xc16/v1.22/bin/bin/../../lib\libm-elf.a(umuldi3.epeo)
-                  0x000eb4                  ___umuldi3
+                  0x000e62         0x56 c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libm-elf.a(muldi3.epeo)
+                  0x000e62                  ___muldi3
+ .libm.umuldi3    0x000eb8         0x44 c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libm-elf.a(umuldi3.epeo)
+                  0x000eb8                  ___umuldi3
 
 usercode
  *(usercode)
@@ -470,21 +476,21 @@ __FUID0
 .comment
  *(.comment)
 
-.debug_info       0x000000       0x4ac8
+.debug_info       0x000000       0x4ac4
  *(.debug_info)
- .debug_info      0x000000       0x46af build/default/production/MicroMouseMAIN.o
- .debug_info      0x0046af        0x419 build/default/production/SetupUART.o
+ .debug_info      0x000000       0x46c4 build/default/production/MicroMouseMAIN.o
+ .debug_info      0x0046c4        0x400 build/default/production/SetupUART.o
  *(.gnu.linkonce.wi.*)
 
-.debug_abbrev     0x000000        0x263
+.debug_abbrev     0x000000        0x27b
  *(.debug_abbrev)
- .debug_abbrev    0x000000        0x1ad build/default/production/MicroMouseMAIN.o
- .debug_abbrev    0x0001ad         0xb6 build/default/production/SetupUART.o
+ .debug_abbrev    0x000000        0x1c5 build/default/production/MicroMouseMAIN.o
+ .debug_abbrev    0x0001c5         0xb6 build/default/production/SetupUART.o
 
-.debug_line       0x000000        0xc1d
+.debug_line       0x000000        0xc23
  *(.debug_line)
- .debug_line      0x000000        0xae2 build/default/production/MicroMouseMAIN.o
- .debug_line      0x000ae2        0x13b build/default/production/SetupUART.o
+ .debug_line      0x000000        0xaf4 build/default/production/MicroMouseMAIN.o
+ .debug_line      0x000af4        0x12f build/default/production/SetupUART.o
 
 .debug_frame      0x000000         0xf4
  *(.debug_frame)
@@ -3127,10 +3133,9 @@ __FUID0
                     0x0230                  UART2 = 0x230
                     0x0230                  _UART2 = 0x230
 START GROUP
-LOAD c:/program files (x86)/microchip/xc16/v1.22/bin/bin/../../lib\libfx-elf.a
-LOAD c:/program files (x86)/microchip/xc16/v1.22/bin/bin/../../lib\libpic30-elf.a
-LOAD c:/program files (x86)/microchip/xc16/v1.22/bin/bin/../../lib\libm-elf.a
-LOAD c:/program files (x86)/microchip/xc16/v1.22/bin/bin/../../lib\libc-elf.a
+LOAD c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libpic30-elf.a
+LOAD c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libm-elf.a
+LOAD c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libc-elf.a
 END GROUP
 OUTPUT(dist/default/production/MM_2015.X.production.elf elf32-pic30)
 LOAD default_isr
@@ -3144,49 +3149,49 @@ LOAD data_init
                   0x00059e         0x5d build/default/production/SetupUART.o
 
 __c30_signature
-                  0x0005fc         0x7e
+                  0x0005fb         0x7e
  __c30_signature
-                  0x0005fc          0x6 build/default/production/MicroMouseMAIN.o
+                  0x0005fb          0x6 build/default/production/MicroMouseMAIN.o
  __c30_signature
-                  0x000602          0x6 build/default/production/SetupUART.o
+                  0x000601          0x6 build/default/production/SetupUART.o
  __c30_signature
-                  0x000608          0x6 c:/program files (x86)/microchip/xc16/v1.22/bin/bin/../../lib/dsPIC33E\libp33EP512MC806-elf.a(ConfigIntUART1.o)
+                  0x000607          0x6 c:/program files/microchip/xc16/v1.24/bin/bin/../../lib/dsPIC33E\libp33EP512MC806-elf.a(ConfigIntUART1.o)
  __c30_signature
-                  0x00060e          0x6 c:/program files (x86)/microchip/xc16/v1.22/bin/bin/../../lib/dsPIC33E\libp33EP512MC806-elf.a(OpenUART1.o)
+                  0x00060d          0x6 c:/program files/microchip/xc16/v1.24/bin/bin/../../lib/dsPIC33E\libp33EP512MC806-elf.a(OpenUART1.o)
  __c30_signature
-                  0x000614          0x6 c:/program files (x86)/microchip/xc16/v1.22/bin/bin/../../lib\libpic30-elf.a(crt0_extendedep.o)
+                  0x000613          0x6 c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libpic30-elf.a(crt0_extendedep.o)
  __c30_signature
-                  0x00061a          0x6 c:/program files (x86)/microchip/xc16/v1.22/bin/bin/../../lib\libpic30-elf.a(data_init_extendedep.o)
+                  0x000619          0x6 c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libpic30-elf.a(data_init_extendedep.o)
  __c30_signature
-                  0x000620          0x6 c:/program files (x86)/microchip/xc16/v1.22/bin/bin/../../lib\libpic30-elf.a(delay32ep.eo)
+                  0x00061f          0x6 c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libpic30-elf.a(delay32ep.eo)
  __c30_signature
-                  0x000626          0x6 c:/program files (x86)/microchip/xc16/v1.22/bin/bin/../../lib\libm-elf.a(divsi3.epeo)
+                  0x000625          0x6 c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libm-elf.a(divsi3.epeo)
  __c30_signature
-                  0x00062c          0x6 c:/program files (x86)/microchip/xc16/v1.22/bin/bin/../../lib\libm-elf.a(udivsi3.epeo)
+                  0x00062b          0x6 c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libm-elf.a(udivsi3.epeo)
  __c30_signature
-                  0x000632          0x6 c:/program files (x86)/microchip/xc16/v1.22/bin/bin/../../lib\libc-elf.a(puts.epeo)
+                  0x000631          0x6 c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libc-elf.a(puts.epeo)
  __c30_signature
-                  0x000638          0x6 c:/program files (x86)/microchip/xc16/v1.22/bin/bin/../../lib\libc-elf.a(_iob.epeo)
+                  0x000637          0x6 c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libc-elf.a(_iob.epeo)
  __c30_signature
-                  0x00063e          0x6 c:/program files (x86)/microchip/xc16/v1.22/bin/bin/../../lib\libc-elf.a(printf_cdnopuxX.EPeo)
+                  0x00063d          0x6 c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libc-elf.a(printf_cdnopuxX.EPeo)
  __c30_signature
-                  0x000644          0x6 c:/program files (x86)/microchip/xc16/v1.22/bin/bin/../../lib\libc-elf.a(fputc.epeo)
+                  0x000643          0x6 c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libc-elf.a(fputc.epeo)
  __c30_signature
-                  0x00064a          0x6 c:/program files (x86)/microchip/xc16/v1.22/bin/bin/../../lib\libc-elf.a(doprnt_cdnopuxX.EPeo)
+                  0x000649          0x6 c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libc-elf.a(doprnt_cdnopuxX.EPeo)
  __c30_signature
-                  0x000650          0x6 c:/program files (x86)/microchip/xc16/v1.22/bin/bin/../../lib\libc-elf.a(flsbuf.epeo)
+                  0x00064f          0x6 c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libc-elf.a(flsbuf.epeo)
  __c30_signature
-                  0x000656          0x6 c:/program files (x86)/microchip/xc16/v1.22/bin/bin/../../lib\libpic30-elf.a(writeep.eo)
+                  0x000655          0x6 c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libpic30-elf.a(writeep.eo)
  __c30_signature
-                  0x00065c          0x6 c:/program files (x86)/microchip/xc16/v1.22/bin/bin/../../lib\libpic30-elf.a(c30_uartep.eo)
+                  0x00065b          0x6 c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libpic30-elf.a(c30_uartep.eo)
  __c30_signature
-                  0x000662          0x6 c:/program files (x86)/microchip/xc16/v1.22/bin/bin/../../lib\libm-elf.a(mulsi3.epeo)
+                  0x000661          0x6 c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libm-elf.a(mulsi3.epeo)
  __c30_signature
-                  0x000668          0x6 c:/program files (x86)/microchip/xc16/v1.22/bin/bin/../../lib\libm-elf.a(divmoddi3.epeo)
+                  0x000667          0x6 c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libm-elf.a(divmoddi3.epeo)
  __c30_signature
-                  0x00066e          0x6 c:/program files (x86)/microchip/xc16/v1.22/bin/bin/../../lib\libm-elf.a(muldi3.epeo)
+                  0x00066d          0x6 c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libm-elf.a(muldi3.epeo)
  __c30_signature
-                  0x000674          0x6 c:/program files (x86)/microchip/xc16/v1.22/bin/bin/../../lib\libm-elf.a(umuldi3.epeo)
+                  0x000673          0x6 c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libm-elf.a(umuldi3.epeo)
 
 .nbss               0x1000         0x5c
  .nbss              0x1000         0x5c build/default/production/MicroMouseMAIN.o
@@ -3244,21 +3249,39 @@ __c30_signature
                     0x5e8c                  _MINIMAP
                     0x5f0c                  _MAP
 
-.data               0x610c        0x1a8
- .data              0x610c         0xca c:/program files (x86)/microchip/xc16/v1.22/bin/bin/../../lib\libc-elf.a(doprnt_cdnopuxX.EPeo)
- .data              0x61d6         0xb8 build/default/production/MicroMouseMAIN.o
- .data              0x628e         0x26 c:/program files (x86)/microchip/xc16/v1.22/bin/bin/../../lib\libc-elf.a(_iob.epeo)
+.data               0x610c         0xb8
+ .data              0x610c         0xb8 build/default/production/MicroMouseMAIN.o
+
+.data.dpowers       0x61c4         0xa0
+ .data.dpowers      0x61c4         0xa0 c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libc-elf.a(doprnt_cdnopuxX.EPeo)
+
+.data               0x6264         0x2a
+ .data              0x6264         0x2a c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libc-elf.a(doprnt_cdnopuxX.EPeo)
+
+.data._iob          0x628e         0x24
+ .data._iob         0x628e         0x24 c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libc-elf.a(_iob.epeo)
                     0x628e                  __iob
+
+.data._Files        0x62b2          0x2
+ .data._Files       0x62b2          0x2 c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libc-elf.a(_iob.epeo)
                     0x62b2                  __Files
 
-.bss                0x62b4          0x6
- .bss               0x62b4          0x6 c:/program files (x86)/microchip/xc16/v1.22/bin/bin/../../lib\libc-elf.a(_iob.epeo)
+.bss._outdone       0x62b4          0x2
+ .bss._outdone      0x62b4          0x2 c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libc-elf.a(_iob.epeo)
                     0x62b4                  __outdone
-                    0x62b5                  __sibuf
-                    0x62b7                  __sobuf
 
-.data               0x62ba          0x2
- .data              0x62ba          0x2 c:/program files (x86)/microchip/xc16/v1.22/bin/bin/../../lib\libpic30-elf.a(c30_uartep.eo)
+.bss._sibuf         0x62b6          0x2
+ .bss._sibuf        0x62b6          0x2 c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libc-elf.a(_iob.epeo)
+                    0x62b6                  __sibuf
+
+.bss._sobuf         0x62b8          0x2
+ .bss._sobuf        0x62b8          0x2 c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libc-elf.a(_iob.epeo)
+                    0x62b8                  __sobuf
+
+.data.__C30_UART
+                    0x62ba          0x2
+ .data.__C30_UART
+                    0x62ba          0x2 c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libpic30-elf.a(c30_uartep.eo)
                     0x62ba                  ___C30_UART
 
 .config_JTAGEN    0xf8000e          0x2
@@ -3278,26 +3301,26 @@ __c30_signature
 .config_GSSK      0xf80004          0x2
  .config_GSSK     0xf80004          0x2 build/default/production/MicroMouseMAIN.o
 
-.text             0x000ef8        0x5a6
- .text            0x000ef8        0x5a6 build/default/production/MicroMouseMAIN.o
-                  0x000ef8                  _main
-                  0x000f6a                  _BATTdisplay
-                  0x000ff4                  _CONFIG_CLOCKHIGH
-                  0x001082                  _CONFIG_CLOCKLOW
-                  0x001110                  _CONFIG_IO
-                  0x0011b6                  _CONFIG_QEI
-                  0x001244                  _CONFIG_PWM
-                  0x0012a6                  _CONFIG_ADC
-                  0x00131a                  _ADCget
-                  0x00142c                  _CONFIG_UART
+.text             0x000efc        0x5b6
+ .text            0x000efc        0x5b6 build/default/production/MicroMouseMAIN.o
+                  0x000efc                  _main
+                  0x000f7c                  _BATTdisplay
+                  0x001006                  _CONFIG_CLOCKHIGH
+                  0x001094                  _CONFIG_CLOCKLOW
+                  0x001122                  _CONFIG_IO
+                  0x0011c8                  _CONFIG_QEI
+                  0x001256                  _CONFIG_PWM
+                  0x0012b8                  _CONFIG_ADC
+                  0x00132e                  _ADCget
+                  0x001440                  _CONFIG_UART
 
-.dinit            0x00149e        0x15e
- .dinit           0x00149e        0x15e data_init
+.dinit            0x0014b2        0x176
+ .dinit           0x0014b2        0x176 data_init
 
-.text             0x0015fc         0x22
- .text            0x0015fc         0x22 build/default/production/SetupUART.o
-                  0x0015fc                  _SetupUART
+.text             0x001628         0x22
+ .text            0x001628         0x22 build/default/production/SetupUART.o
+                  0x001628                  _SetupUART
 
-.init.delay32     0x00161e         0x1c
- .init.delay32    0x00161e         0x1c c:/program files (x86)/microchip/xc16/v1.22/bin/bin/../../lib\libpic30-elf.a(delay32ep.eo)
-                  0x00161e                  ___delay32
+.init.delay32     0x00164a         0x1c
+ .init.delay32    0x00164a         0x1c c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libpic30-elf.a(delay32ep.eo)
+                  0x00164a                  ___delay32
