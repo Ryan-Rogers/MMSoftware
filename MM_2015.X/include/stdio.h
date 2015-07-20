@@ -143,7 +143,7 @@ struct __prbuf
 #define	putchar(x)	putc(x,stdout)
 #else	/* _HOSTED */
 
-#include <conio.h>
+#include	<conio.h>
 #define	getchar()	getche()
 #define	putchar(x)	putch(x)
 extern int	cprintf(char *, ...);
