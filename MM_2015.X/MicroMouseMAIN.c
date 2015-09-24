@@ -361,7 +361,7 @@
         int MOTORturn (int direction);
     // Navigation Functions
     // Test Functions
-        int[][][] newMap(void);
+//        int[][][] newMap(void);
 
 // </editor-fold>
 // <editor-fold defaultstate="collapsed" desc="Main">
@@ -389,7 +389,7 @@ int main(void) {
     GLED5 = 0;
     
     _Bool mazeSolved;
-    newMap();
+//    newMap();
     
     // Main Mode Loop
     while(1) {
