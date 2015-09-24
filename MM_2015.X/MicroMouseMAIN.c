@@ -57,20 +57,20 @@
  *      SPI_SDO     PIN 45     RD11
  */
 // </editor-fold>
-// <editor-fold defaultstate="collapsed" desc="Included Files">
 // =================================================================
 // LIBRARY INCLUSIONS
 // =================================================================
 
-#include <generic.h>
 #include <stdio.h>          // Standard input and output functions
 #include <stdlib.h>         // Standard utility functions
-#include <xc.h>             // Generic include file for XC16
 #include <libpic30.h>       // Useful exports from libpic30.a
 #include <math.h>
 #include <p33EP512MC806.h>
-// </editor-fold>
-// <editor-fold defaultstate="collapsed" desc="Configuration Bits">
+#include    <Generic.h>
+#include    "ChipSetup.h"
+
+
+// <//editor-fold defaultstate="collapsed" desc="Configuration Bits">
 // =================================================================
 // CONFIGURATION BITS
 // =================================================================
@@ -102,7 +102,7 @@
 #pragma config GSS = OFF			// General Segment Code-Protect bit
 
 // </editor-fold>
-// <editor-fold defaultstate="collapsed" desc="Declarations, Initializations & Definitions">
+// <//editor-fold defaultstate="collapsed" desc="Declarations, Initializations & Definitions">
 //=================================================================
 // DECLARATIONS, INITIALIZATIONS & DEFINITIONS
 //=================================================================
@@ -156,7 +156,7 @@
     int ENCODERposition(int Action, int Side, int Value);
     int ENCODERreset (void);
     // Data Record Structure
-        #define SENSORdataLIMIT    500
+        #define SENSORdataLIMIT    2
         struct {    char direction;
                     unsigned int x          : 3;
                     unsigned int y          : 3;
@@ -214,7 +214,7 @@
     int BATTlevel = 0;          // Variable for holding battery voltage level
 
 // </editor-fold>
-// <editor-fold defaultstate="collapsed" desc="Pin Assignments">
+// <//editor-fold defaultstate="collapsed" desc="Pin Assignments">
 // =============================================================
 // Pin Assignments
 // =============================================================
@@ -245,7 +245,7 @@
         #define ENCODERpositionR POS2CNTL   // Right Encoder Position Value Register
 
 // </editor-fold>
-// <editor-fold defaultstate="collapsed" desc="Human readable definitions">
+// <//editor-fold defaultstate="collapsed" desc="Human readable definitions">
 // =============================================================
 // Human readable definitions
 // =============================================================
@@ -263,12 +263,12 @@
     #define GO 1
 
 // </editor-fold>
-// <editor-fold defaultstate="collapsed" desc="Constants">
+// <//editor-fold defaultstate="collapsed" desc="Constants">
 // =============================================================
 // Constants
 // =============================================================
 
-    // Delay loop values ??  There should be a better way to do this
+    // Delay loop values ??  There should be a better way to do this//Dear god there is
         #define DELAYslowSUPERSHORT 489414
         #define DELAYslowSHORT  1957656     // .25  Second SHORT Delay  in Powersaving mode or .033 Seconds in Normal Mode
         #define DELAYslowMEDIUM 3915313     // .5   Second MEDIUM Delay in Powersaving Mode or .065 Seconds in Normal Mode
@@ -283,7 +283,7 @@
         #define Kd .01
 
 // </editor-fold>
-// <editor-fold defaultstate="collapsed" desc="Variables">
+// <//editor-fold defaultstate="collapsed" desc="Variables">
 // =============================================================
 // Variables
 // =============================================================
@@ -295,9 +295,7 @@
         long FP = 40000000;
         long FCY = 40000000;        // 40 MIPs
 
-    // UART speed configuration
-        int BAUDRATE = 9600;
-        long BRGVAL = 0;            // Math for calculation of UART set
+         // Math for calculation of UART set
 
     // Motor Math Values
         #define MAXSPEED    5500            // Max PWM value for motors 5500
@@ -327,22 +325,6 @@
 // =============================================================
 // Function Definitions
 // =============================================================
-
-    // Battery Functions
-        // Sample Battery Voltage and Save to a Global Variable
-    // Button Functions
-    // Chip Configuration Functions
-        void CONFIG_CLOCKHIGH(void);
-        void CONFIG_CLOCKLOW(void);
-        int CONFIG_IO(void);
-        void CONFIG_QEI(void);
-        void CONFIG_PWM(void);
-        void CONFIG_ADC(void);
-        int ADCget (int number);
-        UINT16 SetupUART(void);
-        int CONFIG_UART(void);
-
-
     // Encoder Functions
         int ENCODERposition(int Action, int Side, int Value);   // Read or Write an Encoder Position
     // Error Functions
@@ -359,9 +341,7 @@
         int MOTORallstop(void);
         int MOTORstraight (void);
         int MOTORturn (int direction);
-    // Navigation Functions
-    // Test Functions
-//        int[][][] newMap(void);
+    
 
 // </editor-fold>
 // <editor-fold defaultstate="collapsed" desc="Main">
@@ -452,14 +432,14 @@ int BATTdisplay (void){
         RLED3 = 0;
         RLED4 = 0;
     }
-    return(9000);
+    return(9001);
 }
 // <editor-fold defaultstate="collapsed" desc="Configuration_Subroutines">
 // =================================================================
 // CONFIGURATION SUBROUTINES
 // =================================================================
 // </editor-fold>
-// <editor-fold defaultstate="collapsed" desc="Configure_Clock">
+// <//editor-fold defaultstate="collapsed" desc="Configure_Clock">
 // =================================================================
 // CONFIGURE CLOCK
 // =================================================================
@@ -501,7 +481,7 @@ void CONFIG_CLOCKLOW(void){
     return;
 }
 // </editor-fold>
-// <editor-fold defaultstate="collapsed" desc="Configure_IO">
+// <//editor-fold defaultstate="collapsed" desc="Configure_IO">
 // =================================================================
 // IO PIN CONFIGURATION
 // =================================================================
@@ -613,171 +593,11 @@ int CONFIG_IO(void){ // Input Output configuration for Microstick II with dspic3
     return (0);
 }
 // </editor-fold>
-// <editor-fold defaultstate="collapsed" desc="Configure_QEI">
-//=========================================================+=======
-//QUADRATURE ENCODER CONFIGURE
-//=================================================================
-void CONFIG_QEI(void){
-    // LEFT QEI Config
-    QEI1CONbits.QEIEN = 1;      //QEI Counter Modules are enabled
-    QEI1CONbits.QEISIDL = 0;    //Continue Module Operation in IDLE mode
-    QEI1CONbits.PIMOD = 0;      //Index Events DO NOT AFFECT Position Counter
-    QEI1CONbits.IMV = 0;        //Index Events DO NOT AFFECT Position Counter
-    QEI1CONbits.INTDIV = 0;     //Timer Input Clock Prescale = 1:1
-    QEI1CONbits.GATEN = 0;      //External Count Gate Disabled
-    QEI1CONbits.CCM = 0;        //Quadrature Encoder Mode
 
-    QEI1IOCbits.QCAPEN = 0;     //Home event does NOT trigger position capture event
-    QEI1IOCbits.FLTREN = 1;     //Digital Filter Enabled
-    QEI1IOCbits.QFDIV = 0;      //Filter Clock Divide = 1:1
-    QEI1IOCbits.OUTFNC = 0;     //QEI CNTCMPx Disabled
-    QEI1IOCbits.SWPAB = 0;      //Phase A and B NOT Swapped
-    QEI1IOCbits.QEAPOL = 0;     //Phase Inputs NOT Inverted
-
-    // RIGHT QEI Config
-    QEI2CONbits.QEIEN = 1;      //QEI Counter Modules are enabled
-    QEI2CONbits.QEISIDL = 0;    //Continue Module Operation in IDLE mode
-    QEI2CONbits.PIMOD = 0;      //Index Events DO NOT AFFECT Position Counter
-    QEI2CONbits.IMV = 0;        //Index Events DO NOT AFFECT Position Counter
-    QEI2CONbits.INTDIV = 0;     //Timer Input Clock Prescale = 1:1
-    QEI2CONbits.GATEN = 0;      //External Count Gate Disabled
-    QEI2CONbits.CCM = 0;        //Quadrature Encoder Mode
-
-    QEI2IOCbits.QCAPEN = 0;     //Home event does NOT trigger position capture event
-    QEI2IOCbits.FLTREN = 1;     //Digital Filter Enabled
-    QEI2IOCbits.QFDIV = 0;      //Filter Clock Divide = 1:1
-    QEI2IOCbits.OUTFNC = 0;     //QEI CNTCMPx Disabled
-    QEI2IOCbits.SWPAB = 0;      //Phase A and B NOT Swapped
-    QEI2IOCbits.QEAPOL = 0;     //Phase Inputs NOT Inverted
-
-}
-// </editor-fold>
-// <editor-fold defaultstate="collapsed" desc="Configure_PWM">
-// =========================================================+=======
-// HIGH SPEED PWM CONFIGURE
-// =================================================================
-void CONFIG_PWM(void){
-    PTCONbits.PTEN              = 0;            // PWM Module initially disabled
-    // GENERIC PWM CONFIGURATION BITS
-    PTCONbits.PTSIDL            = 0;            // PWM clock continues even if chip is in idle mode
-    PTCONbits.SEIEN             = 0;            // Special event interupt disabled. We want NO PWM INTERRUPTIONS
-    PTCONbits.EIPU              = 1;            // Update duty cycle immediately as opposed to at the end of every cycle
-    PTCON2bits.PCLKDIV          = 0;            // PWM Module Clock Prescaler: 1:1. (1 tick = 8.32 ns)
-    FCLCON1bits.FLTMOD          = 0b11;         // Disable fault input mode. MANDATORY
-    PTPER                       = 5500;         // Configure PWM for a 45.7 us Period (21.8 KHz)
-    PHASE3                      = 5500;
-    PHASE4                      = 5500;
-    // PWM MODULE 3 SPECIFIC CONFIGURATION BITS
-    PWMCON3bits.FLTIEN          = 0;            // Disable Fault Interrupt. We want NO PWM INTERRUPTIONS
-    PWMCON3bits.CLIEN           = 0;            // Disable current limit interrupt. We want NO PWM INTERRUPTIONS
-    PWMCON3bits.TRGIEN          = 0;            // Disable Trigger interrupt. We want NO PWM INTERRUPTIONS
-    PWMCON3bits.ITB             = 0;            // Use PTPER register value for timing
-    PWMCON3bits.MDCS            = 0;            // MDC Register provides duty cycle
-    PWMCON3bits.IUE             = 1;            // Updates to MDC register are immediately applied
-    IOCON3bits.PENH             = 1;            // Configure PWM3H Pin for PWM output
-    IOCON3bits.PENL             = 0;            // Configure PWM3L Pin for GPIO control
-    IOCON3bits.PMOD             = 0b11;         // Configure PWM3 for True Independent Output Mode
-    IOCON3bits.POLH             = 1;            // Configure pin for active LOW operation
-    // PWM MODULE 4 SPECIFIC CONFIGURATION BITS
-    PWMCON4bits.FLTIEN          = 0;            // Disable Fault Interrupt. We want NO PWM INTERRUPTIONS
-    PWMCON4bits.CLIEN           = 0;            // Disable current limit interrupt. We want NO PWM INTERRUPTIONS
-    PWMCON4bits.TRGIEN          = 0;            // Disable Trigger interrupt. We want NO PWM INTERRUPTIONS
-    PWMCON4bits.ITB             = 0;            // Use PTPER register value for timing
-    PWMCON4bits.MDCS            = 0;            // MDC Register provides duty cycle
-    PWMCON4bits.IUE             = 1;            // Updates to MDC register are immediately applied
-    IOCON4bits.PENH             = 1;            // Configure PWM4H Pin for PWM output
-    IOCON4bits.PENL             = 0;            // Configure PWM4L Pin for GPIO control (This is direction pin)
-    IOCON4bits.PMOD             = 0b11;         // Configure PWM4 for True Independent Output Mode
-    IOCON4bits.POLH             = 1;            // Configure pin for Active LOW Operation
-
-    PTCONbits.PTEN              = 1;            // Reenable PWM module one configured
-}
-// </editor-fold>
-// <editor-fold defaultstate="collapsed" desc="Configure ADC">
+// <//editor-fold defaultstate="collapsed" desc="Configure ADC">
 //=================================================================
 //***************************** ADC *******************************
 //=================================================================
-
-// AD1CON1 CONFIG
-//void CONFIG_ADC(void)
-//{
-//    AD1CON1bits.ADON            = 0;            // Make sure ADC is off before configuring
-//    // AD1CON1 CONFIG
-//    AD1CON1bits.ADSIDL          = 1;            // Keep ADC running in idle mode
-//    AD1CON1bits.ADDMABM         = 0;            // DMA buffers will be in same order as ADC buffer
-//    AD1CON1bits.AD12B           = 0;            // Initialize ADC for 10-bit mode
-//    AD1CON1bits.FORM            = 0;            // ADC output is an unsigned integer (0000 dddd dddd dddd)
-//    AD1CON1bits.SSRC            = 0;            // Set ADC for manual sampling and conversion
-//    AD1CON1bits.SSRCG           = 0;            // Part of config for above
-//    AD1CON1bits.SIMSAM          = 1;            // 10 bit mode -> Simultaneous sampling
-//    AD1CON1bits.ASAM            = 0;            // Sampling begins once samp bit is set
-//    // AD1CON2 CONFIG
-//    AD1CON2bits.VCFG            = 0;            // AD references are Vdd and Vss
-//    AD1CON2bits.CSCNA           = 0;            // No scanning
-//    AD1CON2bits.CHPS            = 1;            // Simultaneous channel sampling (CH0 and CH1)
-//    AD1CON2bits.SMPI            = 0;            // Interrupt after every sample/conversion
-//    AD1CON2bits.BUFM            = 0;            // Start filling buffer at start
-//    AD1CON2bits.ALTS            = 0;            // Always sample from MUX A
-//    // AD1CON3
-//    AD1CON3bits.ADRC            = 0;            // TAD clock derived from system clock
-//    AD1CON3bits.SAMC            = 11;           // Sample time = 1*TAD
-//    AD1CON3bits.ADCS            = 2;            // Fad = Fcy = fast as shit
-//    // AD1CON4 CONFIG
-//    AD1CON4bits.ADDMAEN         = 1;            // Set to 1 so results will be in known buffer ADC1BUF0
-//    AD1CON4bits.DMABL           = 0;            // 1 DMA buffer per input
-//    // AD1CHS0 & 123
-//    AD1CHS123bits.CH123NA       = 0;            // ADC Channel 1 Negative input set to VREF-
-//    AD1CHS123bits.CH123SA       = 1;            // ADC Channel 1 Positive input set to AN3
-//    AD1CHS0bits.CH0SA           = 13;           // ADC Channel 0 Positive input set to AN13
-//    AD1CHS0bits.CH0NA           = 0;            // ADC Channel 0 Negative input set to VREF-
-//    // INTCON1 CONFIG
-//    INTCON1bits.NSTDIS          = 1;            // Disable interrupt nesting
-//    // INTCON2 CONFIG
-//    IPC3bits.AD1IP              = 7;            // ADC Interrupt Priority = 7
-//    IFS0bits.AD1IF              = 0;            // Clear interrupt flag
-//    // ENABLE EVERYTHING
-//    _AD1IE                      = 0;            // Enable ADC1 specific interrupt
-//    _AD1IF                      = 0;            // Clear AD1 interrupt flag
-//
-//    AD2CON1bits.ADON            = 0;            // Make sure ADC is off before configuring
-//    // AD1CON1 CONFIG
-//    AD2CON1bits.ADSIDL          = 1;            // Keep ADC running in idle mode
-//    AD2CON1bits.ADDMABM         = 0;            // DMA buffers will be in same order as ADC buffer
-//    //AD2CON1bits.AD12B           = 0;            // Initialize ADC for 10-bit mode
-//    AD2CON1bits.FORM            = 0;            // ADC output is an unsigned integer (0000 dddd dddd dddd)
-//    AD2CON1bits.SSRC            = 0;            // Set ADC for manual sampling and conversion
-//    AD2CON1bits.SSRCG           = 0;            // Part of config for above
-//    AD2CON1bits.SIMSAM          = 1;            // 10 bit mode -> Simultaneous sampling
-//    AD2CON1bits.ASAM            = 0;            // Sampling begins once samp bit is set
-//    // AD1CON2 CONFIG
-//    AD2CON2bits.VCFG            = 0;            // AD references are Vdd and Vss
-//    AD2CON2bits.CSCNA           = 0;            // No scanning
-//    AD2CON2bits.CHPS            = 1;            // Simultaneous channel sampling (CH0 and CH1)
-//    AD2CON2bits.SMPI            = 0;            // Interrupt after every sample/conversion
-//    AD2CON2bits.BUFM            = 0;            // Start filling buffer at start
-//    AD2CON2bits.ALTS            = 0;            // Always sample from MUX A
-//    // AD1CON3
-//    AD2CON3bits.ADRC            = 0;            // TAD clock derived from system clock
-//    AD2CON3bits.SAMC            = 11;           // Sample time = 1*TAD
-//    AD2CON3bits.ADCS            = 2;            // Fad = Fcy = fast as shit
-//    // AD1CON4 CONFIG
-//    AD2CON4bits.ADDMAEN         = 1;            // Set to 1 so results will be in known buffer ADC2BUF0
-//    AD2CON4bits.DMABL           = 0;            // 1 DMA buffer per input
-//    // AD1CHS0 & 123
-//    AD2CHS123bits.CH123NA       = 0;            // ADC Channel 1 Negative input set to VREF-
-//    AD2CHS123bits.CH123SA       = 1;            // ADC Channel 1 Positive input set to AN3
-//    AD2CHS0bits.CH0SA           = 13;           // ADC Channel 0 Positive input set to AN13
-//    AD2CHS0bits.CH0NA           = 0;            // ADC Channel 0 Negative input set to VREF-
-//    // INTCON1 CONFIG
-//    INTCON1bits.NSTDIS          = 1;            // Disable interrupt nesting
-//    // INTCON2 CONFIG
-//    _AD2IP                      = 7;            // ADC Interrupt Priority = 7
-//    _AD2IF                      = 0;            // Clear interrupt flag
-//    // ENABLE EVERYTHING
-//    _AD1IE                      = 0;            // Enable ADC1 specific interrupt
-//    AD1CON1bits.ADON            = 1;            // Make sure ADC is on before leaving configuration
-//    AD2CON1bits.ADON            = 1;            // Make sure ADC is on before leaving configuration
-//}
 void CONFIG_ADC(void){
     AD1CON1bits.ADON            = 0;            // Make sure ADC is off before configuring
     // AD1CON1 CONFIG
@@ -886,7 +706,7 @@ int ADCget (int number){
     return(9000);
 }
 // </editor-fold>
-// <editor-fold defaultstate="collapsed" desc="Configure Timers">
+// <//editor-fold defaultstate="collapsed" desc="Configure Timers">
 //=================================================================
 //*********************** Timer CONFIGURATION *********************
 //=================================================================
@@ -949,46 +769,4 @@ int ADCget (int number){
 }
 */
 // </editor-fold>
-// <editor-fold defaultstate="collapsed" desc="Configure UART">
-//=================================================================
-//*********************** UART CONFIGURATION *************************
-//=================================================================
 
-UINT16 SetupUART(void);
-int CONFIG_UART(void) //
-{
-    // Setup UART 1 mode
-    U1MODEbits.UARTEN = 0;          // Disable UART 1 for setup
-    U1MODEbits.USIDL = 0;           // Continue Operation in IDLE mode
-    U1MODEbits.IREN = 0;            // IrDA Encoder and Decoder Disabled ((If Enabled verify 16x BRG mode (BRGH=0)))
-    U1MODEbits.RTSMD = 1;           // UxRTS pin in simplex mode
-    U1MODEbits.UEN = 0b00;          // TX and RX enabled, CTS and RTS/BCLK controlled by port latches
-    U1MODEbits.WAKE = 0;            // No wake-up is enabled when in sleep mode
-    U1MODEbits.LPBACK = 0;          // Loopback Disabled
-    U1MODEbits.ABAUD = 0;           // Auto-Baud rate measurement disabled (We are setting the baud rate)
-    U1MODEbits.URXINV = 0;          // UxRX Idle state is '1'
-    U1MODEbits.BRGH = 0;            // BRG generates 16 clocks per bit period (16x baud clock, standard mode)
-    U1MODEbits.PDSEL = 0b00;        // Parity and Data Selection as 8-bit data, no parity
-    U1MODEbits.STSEL = 0;           // One Stop Bit
-
-    // Setup UART 1 Status bits ((Default states for interrupts even though we will disable interrupts))
-    U1STAbits.UTXISEL1 = 0;         // UTXISEL 0 and 1 , Interrupt after each transmitted character
-    U1STAbits.UTXISEL0 = 0;
-    U1STAbits.UTXINV = 0;           // UxTX Idle state is '1'
-    U1STAbits.UTXBRK = 0;           // Sync Break Transmission is disabled
-    U1STAbits.UTXEN = 1;            // UART1 Transmit Enable Bit UxTX pin controlled by UART
-    U1STAbits.URXISEL = 0b00;       // RX Interrupt when buffer full
-    U1STAbits.ADDEN = 0;            // Address Detect mode disabled
-    U1STAbits.OERR = 0;             // Clear Receive Buffer Overrun Bit
-
-    U1BRG = BRGVAL;                 // baud_rate = 9600 bps;
-    RPINR18bits.U1RXR = 98;        // assign U1RX to RP98  0b1100010
-    RPOR10bits.RP102R = 1;            // assign U1TX to RP102   RPnR<000001>
-
-    IFS0bits.U1TXIF = 0;            // Set the U1TX interupt flag to 0
-    IEC0bits.U1TXIE = 0;            // Disable the U1TX interupt
-    IPC3bits.U1TXIP = 5;            // Set the U1TX priority level to 5
-    U1MODEbits.UARTEN = 1;          // Enable UART 1 after setup
-    return (0);
-}
-// </editor-fold>

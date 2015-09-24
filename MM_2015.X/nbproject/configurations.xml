@@ -4,34 +4,6 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
-      <logicalFolder name="f1" displayName="LibHeader" projectFiles="true">
-        <itemPath>include/assert.h</itemPath>
-        <itemPath>support/generic/h/CodeProfiling16.h</itemPath>
-        <itemPath>include/ctype.h</itemPath>
-        <itemPath>support/generic/h/dsp.h</itemPath>
-        <itemPath>support/generic/h/dsp_factors_32b.h</itemPath>
-        <itemPath>include/errno.h</itemPath>
-        <itemPath>include/float.h</itemPath>
-        <itemPath>support/generic/h/InstrumentedTrace.h</itemPath>
-        <itemPath>support/generic/h/libpic30.h</itemPath>
-        <itemPath>support/generic/h/libq.h</itemPath>
-        <itemPath>include/limits.h</itemPath>
-        <itemPath>include/math.h</itemPath>
-        <itemPath>support/dsPIC33E/h/p33EP512MC806.h</itemPath>
-        <itemPath>include/setjmp.h</itemPath>
-        <itemPath>include/signal.h</itemPath>
-        <itemPath>include/stdarg.h</itemPath>
-        <itemPath>include/stdbool.h</itemPath>
-        <itemPath>include/stddef.h</itemPath>
-        <itemPath>include/stdfix.h</itemPath>
-        <itemPath>include/stdint.h</itemPath>
-        <itemPath>include/stdio.h</itemPath>
-        <itemPath>include/stdlib.h</itemPath>
-        <itemPath>include/string.h</itemPath>
-        <itemPath>include/time.h</itemPath>
-        <itemPath>include/unixio.h</itemPath>
-        <itemPath>support/generic/h/xc.h</itemPath>
-      </logicalFolder>
       <itemPath>ChipSetup.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
@@ -41,8 +13,11 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
+      <logicalFolder name="f1" displayName="Setups" projectFiles="true">
+        <itemPath>SetupUART.c</itemPath>
+        <itemPath>SetupMotors.c</itemPath>
+      </logicalFolder>
       <itemPath>MicroMouseMAIN.c</itemPath>
-      <itemPath>SetupUART.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -50,8 +25,6 @@
     </logicalFolder>
   </logicalFolder>
   <sourceRootList>
-    <Elem>support</Elem>
-    <Elem>include</Elem>
     <Elem>../../../Program Files (x86)/Microchip/xc16</Elem>
   </sourceRootList>
   <projectmakefile>Makefile</projectmakefile>

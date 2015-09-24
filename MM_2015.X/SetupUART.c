@@ -2,9 +2,10 @@
 #include <p33EP512MC806.h>
 #include <uart.h>
 #include <pps.h>
-
+#include    "ChipSetup.h"
 //#define DEBUG_UART
-
+int BAUDRATE = 9600;
+long BRGVAL = 0; 
 
 UINT16 SetupUART(void)
 {
@@ -20,7 +21,6 @@ UINT16 SetupUART(void)
 
 #endif
 
-    //PPSOutput(OUT_FN_PPS_U1TX,OUT_PIN_PPS_RP102);
     PPSOutput(OUT_FN_PPS_U1TX,OUT_PIN_PPS_RP102);
 
     OpenUART1(UART_EN &
@@ -59,6 +59,48 @@ UINT16 SetupUART(void)
 #endif
 
     return 0;
+}
+
+//=================================================================
+//*********************** UART CONFIGURATION *************************
+//=================================================================
+
+
+int CONFIG_UART(void) //
+{
+    // Setup UART 1 mode
+    U1MODEbits.UARTEN = 0;          // Disable UART 1 for setup
+    U1MODEbits.USIDL = 0;           // Continue Operation in IDLE mode
+    U1MODEbits.IREN = 0;            // IrDA Encoder and Decoder Disabled ((If Enabled verify 16x BRG mode (BRGH=0)))
+    U1MODEbits.RTSMD = 1;           // UxRTS pin in simplex mode
+    U1MODEbits.UEN = 0b00;          // TX and RX enabled, CTS and RTS/BCLK controlled by port latches
+    U1MODEbits.WAKE = 0;            // No wake-up is enabled when in sleep mode
+    U1MODEbits.LPBACK = 0;          // Loopback Disabled
+    U1MODEbits.ABAUD = 0;           // Auto-Baud rate measurement disabled (We are setting the baud rate)
+    U1MODEbits.URXINV = 0;          // UxRX Idle state is '1'
+    U1MODEbits.BRGH = 0;            // BRG generates 16 clocks per bit period (16x baud clock, standard mode)
+    U1MODEbits.PDSEL = 0b00;        // Parity and Data Selection as 8-bit data, no parity
+    U1MODEbits.STSEL = 0;           // One Stop Bit
+
+    // Setup UART 1 Status bits ((Default states for interrupts even though we will disable interrupts))
+    U1STAbits.UTXISEL1 = 0;         // UTXISEL 0 and 1 , Interrupt after each transmitted character
+    U1STAbits.UTXISEL0 = 0;
+    U1STAbits.UTXINV = 0;           // UxTX Idle state is '1'
+    U1STAbits.UTXBRK = 0;           // Sync Break Transmission is disabled
+    U1STAbits.UTXEN = 1;            // UART1 Transmit Enable Bit UxTX pin controlled by UART
+    U1STAbits.URXISEL = 0b00;       // RX Interrupt when buffer full
+    U1STAbits.ADDEN = 0;            // Address Detect mode disabled
+    U1STAbits.OERR = 0;             // Clear Receive Buffer Overrun Bit
+
+    U1BRG = BRGVAL;                 // baud_rate = 9600 bps;
+    RPINR18bits.U1RXR = 98;        // assign U1RX to RP98  0b1100010
+    RPOR10bits.RP102R = 1;            // assign U1TX to RP102   RPnR<000001>
+
+    IFS0bits.U1TXIF = 0;            // Set the U1TX interupt flag to 0
+    IEC0bits.U1TXIE = 0;            // Disable the U1TX interupt
+    IPC3bits.U1TXIP = 5;            // Set the U1TX priority level to 5
+    U1MODEbits.UARTEN = 1;          // Enable UART 1 after setup
+    return (0);
 }
 
 
