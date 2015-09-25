@@ -65,44 +65,53 @@
 #include <stdlib.h>         // Standard utility functions
 #include <libpic30.h>       // Useful exports from libpic30.a
 #include <math.h>
-#include <p33EP512MC806.h>
+#include <p33Exxxx.h>
 #include    <Generic.h>
 #include    "ChipSetup.h"
 
 
-// <//editor-fold defaultstate="collapsed" desc="Configuration Bits">
+// <editor-fold defaultstate="collapsed" desc="Configuration Words">
 // =================================================================
-// CONFIGURATION BITS
+// CONFIGURATION WORDS
 // =================================================================
 
-// FICD
-#pragma config ICS = PGD1                       // ICD Communication Channel Select bits (Communicate on PGEC1 and PGED1)
-#pragma config JTAGEN = OFF                     // JTAG Enable bit (JTAG is disabled)
+_FGS(GWRP_OFF & GSS_OFF & GSSK_OFF);
+_FOSCSEL(FNOSC_FRCPLL & IESO_OFF);
+_FOSC(OSCIOFNC_ON & POSCMD_NONE & FCKSM_CSECMD);
+_FWDT(WDTPOST_PS8192 & WDTPRE_PR32 & PLLKEN_ON & WINDIS_OFF & FWDTEN_OFF);
+_FPOR(BOREN_ON & FPWRT_PWR128);
+_FICD(ICS_PGD1 & JTAGEN_OFF);
 
-// FWDT
-#pragma config WDTPOST = PS32768                // Watchdog Timer Postscaler bits (1:32,768)
-#pragma config WDTPRE = PR128                   // Watchdog Timer Prescaler bit (1:128)
+//<editor-fold defaultstate="collapsed" desc="Old Config Words">// FICD
+//#pragma config ICS = PGD1                       // ICD Communication Channel Select bits (Communicate on PGEC1 and PGED1)
+//#pragma config JTAGEN = OFF                     // JTAG Enable bit (JTAG is disabled)
+//
+//// FWDT
+//#pragma config WDTPOST = PS32768                // Watchdog Timer Postscaler bits (1:32,768)
+//#pragma config WDTPRE = PR128                   // Watchdog Timer Prescaler bit (1:128)
+//
+////#pragma config PLLKEN = ON                      // PLL Lock Enable bit (Clock switch to PLL source will wait until the PLL lock signal is valid.)
+//#pragma config WINDIS = OFF                     // Watchdog Timer Window Enable bit (Watchdog Timer in Non-Window mode)
+//#pragma config FWDTEN = OFF                     // Watchdog Timer Enable bit (Watchdog timer always enabled)
+//
+//// FOSC
+//#pragma config POSCMD = NONE                    // Primary Oscillator Mode Select bits (Primary Oscillator disabled)
+//#pragma config OSCIOFNC = OFF                   // OSC2 Pin Function bit (OSC2 is clock output)
+//#pragma config IOL1WAY = ON                     // Peripheral pin select configuration (Allow only one reconfiguration)
+//#pragma config FCKSM = CSECMD                   // Clock Switching Mode bits (Both Clock switching and Fail-safe Clock Monitor are disabled)
+//
+//// FOSCSEL
+//#pragma config FNOSC = FRCPLL                   // Oscillator Source Selection (Internal Fast RC (FRC) Oscillator with PLL)
+//#pragma config IESO = ON                        // Two-speed Oscillator Start-up Enable bit (Start up device with FRC, then switch to user-selected oscillator source)
+//
+//// FGS
+//#pragma config GWRP = OFF                       // General Segment Write-Protect bit (General Segment may be written)
+//#pragma config GSS = OFF			// General Segment Code-Protect bit
+//</editor-fold>
 
-//#pragma config PLLKEN = ON                      // PLL Lock Enable bit (Clock switch to PLL source will wait until the PLL lock signal is valid.)
-#pragma config WINDIS = OFF                     // Watchdog Timer Window Enable bit (Watchdog Timer in Non-Window mode)
-#pragma config FWDTEN = OFF                     // Watchdog Timer Enable bit (Watchdog timer always enabled)
+//</editor-fold>
 
-// FOSC
-#pragma config POSCMD = NONE                    // Primary Oscillator Mode Select bits (Primary Oscillator disabled)
-#pragma config OSCIOFNC = OFF                   // OSC2 Pin Function bit (OSC2 is clock output)
-#pragma config IOL1WAY = ON                     // Peripheral pin select configuration (Allow only one reconfiguration)
-#pragma config FCKSM = CSECMD                   // Clock Switching Mode bits (Both Clock switching and Fail-safe Clock Monitor are disabled)
-
-// FOSCSEL
-#pragma config FNOSC = FRCPLL                   // Oscillator Source Selection (Internal Fast RC (FRC) Oscillator with PLL)
-#pragma config IESO = ON                        // Two-speed Oscillator Start-up Enable bit (Start up device with FRC, then switch to user-selected oscillator source)
-
-// FGS
-#pragma config GWRP = OFF                       // General Segment Write-Protect bit (General Segment may be written)
-#pragma config GSS = OFF			// General Segment Code-Protect bit
-
-// </editor-fold>
-// <//editor-fold defaultstate="collapsed" desc="Declarations, Initializations & Definitions">
+// <editor-fold defaultstate="collapsed" desc="Declarations, Initializations & Definitions">
 //=================================================================
 // DECLARATIONS, INITIALIZATIONS & DEFINITIONS
 //=================================================================
