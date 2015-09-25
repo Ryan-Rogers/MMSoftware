@@ -349,48 +349,7 @@
 //=================================================================
 //*********************** MAIN SUBROUTINE *************************
 //=================================================================
-int main(void) {
-    RCONbits.SWDTEN = 0;    // Turn Off Software Watch Dog Timer
-    CONFIG_IO();            // Configure Pins as Input or Output & Analog or Digital
-    CONFIG_PWM();           // Configure Pulse Width Modulation
-    CONFIG_QEI();           // Configure Quadrature Encoder Interface
-    CONFIG_ADC();           // Configure Analog to Digital Converter
-    SetupUART();
-    CONFIG_UART();          // Configure UART
-    //CONFIG_TIMERS();      // Configure timers and ISRs for IR ADC and battery monitoring
-    CONFIG_CLOCKLOW();      // Slow Clock
-    
-    // DEBUG Mode
-    if(DEBUG) {
-        printf ("Setup Complete - Beginning Main Program\n");
-    }
-    
-    BLED6 = 1;
-    GLED5 = 0;
-    
-    _Bool mazeSolved;
-//    newMap();
-    
-    // Main Mode Loop
-    while(1) {
-        
-        // DEBUG
-        __delay32(DELAYslowLONG);
-        GLED5 = !GLED5;
-        BLED6 = !BLED6;
-        printf("Battery Level = :%d\n", BATTlevel); // Printing battery level
-        
-        // Solving the maze
-        mazeSolved = 0;
-        while(!mazeSolved) {
-            
-        }
-    }
-    
-    // End of Main Program
-    return(0);
-}
-// </editor-fold>
+
 int BATTdisplay (void){
     BATTlevel = ADCget(0);
     if (BATTlevel >= 2000 && BATTlevel < 2333 )
@@ -443,43 +402,43 @@ int BATTdisplay (void){
 // =================================================================
 // CONFIGURE CLOCK
 // =================================================================
-void CONFIG_CLOCKHIGH(void){
-    if (DEBUG) printf("Setting Clock to High Speed 60MIPS\n");
-    //CLOCK SPEED CONFIG
-    CLKDIVbits.PLLPRE           = 0;
-    CLKDIVbits.PLLPOST          = 0;
-    PLLFBDbits.PLLDIV           = 63;
-    // RESULTING Fosc = 119.7625 MHz
-    // RESULTING Fcy = 59.88125 MIPS
-    _NOSC = 1;
-    _OSWEN = 1;         // Request Change to new clock
-    while (_OSWEN){}    // Wait for Clock Change to complete
-    FP = 59881250;
-    FCY = 59881250UL;      // 60 MIPs
-    BRGVAL = ((FP/BAUDRATE)/16)-1; // Math for calculation of UART set
-    U1BRG = BRGVAL;                 // baud_rate = 9600 bps;
-    if (DEBUG) printf("Clock Change Complete - FCY and UART Speed Redefined\n");
-    return;
-}
+//void CONFIG_CLOCKHIGH(void){
+//    if (DEBUG) printf("Setting Clock to High Speed 60MIPS\n");
+//    //CLOCK SPEED CONFIG
+//    CLKDIVbits.PLLPRE           = 0;
+//    CLKDIVbits.PLLPOST          = 0;
+//    PLLFBDbits.PLLDIV           = 63;
+//    // RESULTING Fosc = 119.7625 MHz
+//    // RESULTING Fcy = 59.88125 MIPS
+//    _NOSC = 1;
+//    _OSWEN = 1;         // Request Change to new clock
+//    while (_OSWEN){}    // Wait for Clock Change to complete
+//    FP = 59881250;
+//    FCY = 59881250UL;      // 60 MIPs
+//    BRGVAL = ((FP/BAUDRATE)/16)-1; // Math for calculation of UART set
+//    U1BRG = BRGVAL;                 // baud_rate = 9600 bps;
+//    if (DEBUG) printf("Clock Change Complete - FCY and UART Speed Redefined\n");
+//    return;
+//}
 
-void CONFIG_CLOCKLOW(void){
-    if (DEBUG) printf("Setting Clock to Low Speed 7.8MIPS\n");
-    //CLOCK SPEED CONFIG
-    CLKDIVbits.PLLPRE           = 0;
-    CLKDIVbits.PLLPOST          = 3;
-    PLLFBDbits.PLLDIV           = 32;
-    // RESULTING Fosc = 15.66125 MHz
-    // RESULTING Fcy = 7.830625 MIPS
-    _NOSC = 1;
-    _OSWEN = 1;         // Request Change to new clock
-    while (_OSWEN){}    // Wait for Clock Change to complete
-    FP = 7830625;
-    FCY = 7830625UL;      // 7.8 MIPs
-    BRGVAL = ((FP/BAUDRATE)/16)-1; // Math for calculation of UART set
-    U1BRG = BRGVAL;                 // baud_rate = 9600 bps;
-    if (DEBUG) printf("Clock Change Complete - FCY and UART Speed Redefined\n");
-    return;
-}
+//void CONFIG_CLOCKLOW(void){
+//    if (DEBUG) printf("Setting Clock to Low Speed 7.8MIPS\n");
+//    //CLOCK SPEED CONFIG
+//    CLKDIVbits.PLLPRE           = 0;
+//    CLKDIVbits.PLLPOST          = 3;
+//    PLLFBDbits.PLLDIV           = 32;
+//    // RESULTING Fosc = 15.66125 MHz
+//    // RESULTING Fcy = 7.830625 MIPS
+//    _NOSC = 1;
+//    _OSWEN = 1;         // Request Change to new clock
+//    while (_OSWEN){}    // Wait for Clock Change to complete
+//    FP = 7830625;
+//    FCY = 7830625UL;      // 7.8 MIPs
+//    BRGVAL = ((FP/BAUDRATE)/16)-1; // Math for calculation of UART set
+//    U1BRG = BRGVAL;                 // baud_rate = 9600 bps;
+//    if (DEBUG) printf("Clock Change Complete - FCY and UART Speed Redefined\n");
+//    return;
+//}
 // </editor-fold>
 // <//editor-fold defaultstate="collapsed" desc="Configure_IO">
 // =================================================================
@@ -769,4 +728,69 @@ int ADCget (int number){
 }
 */
 // </editor-fold>
+int main(void) {
+        void ConfigPLL(void);
+        ConfigPLL();
+    RCONbits.SWDTEN = 0;    // Turn Off Software Watch Dog Timer
+    CONFIG_IO();            // Configure Pins as Input or Output & Analog or Digital
+    CONFIG_PWM();           // Configure Pulse Width Modulation
+    CONFIG_QEI();           // Configure Quadrature Encoder Interface
+    CONFIG_ADC();           // Configure Analog to Digital Converter
+    SetupUART1();
+    //CONFIG_UART();          // Configure UART
+    //CONFIG_TIMERS();      // Configure timers and ISRs for IR ADC and battery monitoring
+    //CONFIG_CLOCKLOW();      // Slow Clock
+    
+    // DEBUG Mode
+    if(DEBUG) {
+        printf ("Setup Complete - Beginning Main Program\n");
+    }
+    
+    BLED6 = 1;
+    GLED5 = 0;
+    
+    _Bool mazeSolved;
+//    newMap();
+    
+    // Main Mode Loop
+    while(1) {
+        
+        // DEBUG
+        __delay32(DELAYslowLONG);
+        GLED5 = !GLED5;
+        BLED6 = !BLED6;
+        printf("Battery Level = :%d\n", BATTlevel); // Printing battery level
+        
+        // Solving the maze
+        mazeSolved = 0;
+        while(!mazeSolved) {
+            
+        }
+    }
+    
+    // End of Main Program
+    return(0);
+}
+// </editor-fold>
+
+inline void ConfigPLL(void)
+{
+        /*
+         * Configure Phase Lock Loop (PLL) for 140.03 MHz operation
+         * This is 30 kHz above what should be 70 MIPS operation.
+         * If there is an issue, the M value should be lowered to M=75.
+         */
+        
+        // Configure PLL prescaler, PLL postscaler, PLL divisor
+        PLLFBD=74; // M=76
+        CLKDIVbits.PLLPOST=0; // N2=2
+        CLKDIVbits.PLLPRE=0; // N1=0
+        // Initiate Clock Switch to FRC oscillator with PLL (NOSC=0b001)
+        __builtin_write_OSCCONH(0x01);
+        __builtin_write_OSCCONL(OSCCON | 0x01);
+        // Wait for Clock switch to occur
+        while (OSCCONbits.COSC!= 0b001);
+        // Wait for PLL to lock
+        while (OSCCONbits.LOCK!= 1);
+}
 
